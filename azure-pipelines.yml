@@ -22,11 +22,9 @@ steps:
     command: 'publish'
     publishWebProjects: true
 
-- task: AzureRmWebAppDeployment@4
+- task: AzureWebApp@1
   inputs:
-    ConnectionType: 'AzureRM'
     azureSubscription: 'Azure subscription 1(0b53145a-fe19-4ae8-b3ab-e6ee5b82c98e)'
     appType: 'webAppLinux'
-    WebAppName: 'testing-deployments-api'
-    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
-    RuntimeStack: 'DOTNETCORE|7.0'
+    appName: 'testing-deployments-api'
+    package: '$(System.DefaultWorkingDirectory)/**/*.zip'
